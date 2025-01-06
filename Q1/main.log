@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.8.6)  5 JAN 2025 23:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.8.6)  6 JAN 2025 07:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1369,7 +1369,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 82--84
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-
 dist/fonts/enc/dvips/base/8r.enc}]
-<figs/Q1.png, id=25, 722.7pt x 433.62pt>
+<figs/Q1.png, id=31, 722.7pt x 433.62pt>
 File: figs/Q1.png Graphic file (type png)
 <use figs/Q1.png>
 Package pdftex.def Info: figs/Q1.png  used on input line 99.
@@ -1379,24 +1379,14 @@ Package pdftex.def Info: figs/Q1.png  used on input line 99.
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  268892D8CED5C847A04F52E9847D529B;287.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 268892D8CED5C847A04F52E9847D529B;287.
  ) 
 Here is how much of TeX's memory you used:
- 30449 strings out of 474222
- 595747 string characters out of 5748734
+ 30452 strings out of 474222
+ 595771 string characters out of 5748734
  1942975 words of memory out of 5000000
- 52039 multiletter control sequences out of 15000+600000
+ 52042 multiletter control sequences out of 15000+600000
  616406 words of font info for 151 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  101i,9n,103p,1172b,438s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1407,10 +1397,10 @@ onts/type1/public/txfonts/txex.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utm
 b8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (2 pages, 74737 bytes).
+Output written on main.pdf (2 pages, 75066 bytes).
 PDF statistics:
- 71 PDF objects out of 1000 (max. 8388607)
- 48 compressed objects within 1 object stream
+ 78 PDF objects out of 1000 (max. 8388607)
+ 55 compressed objects within 1 object stream
  8 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 34 words of extra memory for PDF output out of 10000 (max. 10000000)
 
