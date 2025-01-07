@@ -104,6 +104,27 @@ The solution is
 \begin{align*}
     y\brak{x}=1-e^{-x}
 \end{align*}
+\section{Z Transform}
+\begin{align*}
+  \frac{dy}{dx}=\frac{{}y_{n+1}-y_{n}}{h}\\
+  y_{n+1}=y_{n}+\frac{dy}{dx}h\\
+  y_{n+1}=y_{n}+\brak{1-y_{n}}h\\
+\end{align*}
+Applying Z Transform on both sides\\
+\begin{align*}
+    \mathcal{Z}\{y(k+1)\} = z.Y\brak{z}-z.y\brak{0}\\
+    \mathcal{Z}\{y(k)\}=Y\brak{z}\\
+    \mathcal{Z}\{1-y(k)\}=\frac{1}{1-z^{-1}}-Y\brak{z}\\
+    z Y(z) - z y(0) = Y(z) + h \left( \frac{1}{1 - z^{-1}} - Y(z) \right)\\
+\end{align*}
+Solving for $Y\brak{z}$,\\
+\begin{align*}
+    Y(z) = \frac{z y(0) + h}{z - 1 + h}=\frac{h}{z - 1 + h} \quad \brak{y\brak{0}=0}
+\end{align*}
+Applying Z Inverse,
+\begin{align*}
+y\brak{x}=h(1-h)^{x}u\sbrak{x}
+\end{align*}
 \section{Numerical Approach}
 \begin{align*}
 \frac{dy}{dx}=\lim_{h \rightarrow 0} \frac{y\brak{x+h}-y\brak{x}}{h}
