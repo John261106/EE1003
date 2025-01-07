@@ -76,20 +76,51 @@ Thus is the function $y$ is,
 \begin{align*}
     y=1-e^{-x}
 \end{align*}
+\section{Laplace Transform}
+Take the Laplace transform of both sides,\\
+\begin{align*}
+    \mathcal{L}\left\{\frac{dy}{dx}\right\} = \mathcal{L}\{1 - y\}
+\end{align*}
+Using the Laplace transform properties,\\
+\begin{align*}
+    \mathcal{L}\left\{\frac{dy}{dx}\right\} = sY(s) - y(0), \quad \mathcal{L}\{1\} = \frac{1}{s}, \quad \mathcal{L}\{y(t)\} = Y(s)\\
+\end{align*}
+On rearranging,\\
+\begin{align*}
+    sY(s) - y(0) = \frac{1}{s} - Y(s)\\
+    sY(s) + Y(s) = \frac{1}{s} + y(0)\\
+    Y(s)(s + 1) = \frac{1}{s} + y(0)\\
+    Y(s) = \frac{1}{s(s+1)} + \frac{y(0)}{s+1}
+\end{align*}
+Taking the inverse laplace transform \\
+\begin{align*}
+\mathcal{L}^{-1}\brak{Y\brak{s}}=y\brak{x}\\
+    \mathcal{L}^{-1}\brak{\frac{1}{s\brak{s+1}}}=1-e^{-x}\\
+    \mathcal{L}^{-1}\brak{\frac{y\brak{0}}{s+1}}=y\brak{0}e^{-x}\\
+    y\brak{x}=1-e^{-x}+y\brak{0}e^{-x}\\
+\end{align*}
+As $y\brak{0}=0$
+The solution is 
+\begin{align*}
+    y\brak{x}=1-e^{-x}
+\end{align*}
 \section{Numerical Approach}
 \begin{align*}
 \frac{dy}{dx}=\lim_{h \rightarrow 0} \frac{y\brak{x+h}-y\brak{x}}{h}
+=\lim_{h \rightarrow 0}\frac{{}y_{n+1}-y_{n}}{h}
 \end{align*}
+
 If $h$ is sufficiently small,\\
 \begin{align*}
-    y\brak{x+h}-y\brak{x}=h\frac{dy}{dx}\\
-    y\brak{x+h}=y\brak{x}+h\frac{dy}{dx}
+  \frac{dy}{dx}=\frac{{}y_{n+1}-y_{n}}{h}\\
+  y_{n+1}=y_{n}+\frac{dy}{dx}h\\
+  y_{n+1}=y_{n}+\brak{1-y_{n}}h\\
 \end{align*}
-Thus the value of $y\brak{x+h}$ can be predicted if we know the value of the derivative at that point\\
+Thus the value of $y_{n+1}$ can be predicted if we know the value of $y_{n}$\\
 For this question 
 \begin{enumerate}
     \item The interval $\sbrak{0,5}$ is divided  into $51$ equal parts each of width $0.1$units
-    \item On starting from a known point $\brak{x,y}$ the value for $y\brak{x+0.1}$ is calculated. This procedure is repeated until the value of $x$ reaches 5.
+    \item On starting from a known point $\brak{x,y}$ the value for $y\brak{x+0.1}$ is calculated. This procedure is repeated until the value of $x$ reaches $5$.
     \item Knowing all the $y$ values for the equally spaced $x$ values in interval, the solution plot can be plotted.
 \end{enumerate}
 \newpage
