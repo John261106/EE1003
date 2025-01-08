@@ -1,0 +1,20 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Initialize x and y arrays}
+\PYG{n}{x} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{n}{x\PYGZus{}start}\PYG{p}{,} \PYG{n}{x\PYGZus{}end}\PYG{p}{,} \PYG{n}{n\PYGZus{}steps}\PYG{p}{)}
+\PYG{n}{y\PYGZus{}fd} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{n\PYGZus{}steps}\PYG{p}{)}
+\PYG{n}{y\PYGZus{}exact} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{n\PYGZus{}steps}\PYG{p}{)}
+\PYG{n}{x\PYGZus{}z}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mf}{0.0}\PYG{p}{]}
+\PYG{n}{y\PYGZus{}z}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mf}{0.1}\PYG{p}{]}
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{52}\PYG{p}{):}
+    \PYG{n}{x\PYGZus{}z}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{x\PYGZus{}z}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{+}\PYG{n}{h}\PYG{p}{)}
+    \PYG{n}{y\PYGZus{}z}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{l+m+mf}{0.9}\PYG{p}{)}\PYG{o}{**}\PYG{p}{(}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{))}
+
+\PYG{c+c1}{\PYGZsh{} Convert arrays to ctypes}
+\PYG{n}{x\PYGZus{}ctypes} \PYG{o}{=} \PYG{n}{x}\PYG{o}{.}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{data\PYGZus{}as}\PYG{p}{(}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{POINTER}\PYG{p}{(}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{c\PYGZus{}double}\PYG{p}{))}
+\PYG{n}{y\PYGZus{}fd\PYGZus{}ctypes} \PYG{o}{=} \PYG{n}{y\PYGZus{}fd}\PYG{o}{.}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{data\PYGZus{}as}\PYG{p}{(}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{POINTER}\PYG{p}{(}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{c\PYGZus{}double}\PYG{p}{))}
+\PYG{n}{y\PYGZus{}exact\PYGZus{}ctypes} \PYG{o}{=} \PYG{n}{y\PYGZus{}exact}\PYG{o}{.}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{data\PYGZus{}as}\PYG{p}{(}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{POINTER}\PYG{p}{(}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{c\PYGZus{}double}\PYG{p}{))}
+
+\PYG{c+c1}{\PYGZsh{} Calling the functions}
+\PYG{n}{solver}\PYG{o}{.}\PYG{n}{finite\PYGZus{}differences}\PYG{p}{(}\PYG{n}{x\PYGZus{}ctypes}\PYG{p}{,} \PYG{n}{y\PYGZus{}fd\PYGZus{}ctypes}\PYG{p}{,} \PYG{n}{n\PYGZus{}steps}\PYG{p}{,} \PYG{n}{h}\PYG{p}{)}
+\PYG{n}{solver}\PYG{o}{.}\PYG{n}{analytical\PYGZus{}solution}\PYG{p}{(}\PYG{n}{x\PYGZus{}ctypes}\PYG{p}{,} \PYG{n}{y\PYGZus{}exact\PYGZus{}ctypes}\PYG{p}{,} \PYG{n}{n\PYGZus{}steps}\PYG{p}{)}
+\end{Verbatim}
