@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\PYG{c+c1}{\PYGZsh{}Converting array to ctypes}
+\PYG{n}{x\PYGZus{}ctypes} \PYG{o}{=} \PYG{n}{x}\PYG{o}{.}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{data\PYGZus{}as}\PYG{p}{(}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{POINTER}\PYG{p}{(}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{c\PYGZus{}double}\PYG{p}{))}
+\PYG{n}{y\PYGZus{}ctypes} \PYG{o}{=} \PYG{n}{y}\PYG{o}{.}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{data\PYGZus{}as}\PYG{p}{(}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{POINTER}\PYG{p}{(}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{c\PYGZus{}double}\PYG{p}{))}
+\PYG{n}{y\PYGZus{}trapezoidal\PYGZus{}ctypes} \PYG{o}{=} \PYG{n}{y\PYGZus{}trapezoidal}\PYG{o}{.}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{data\PYGZus{}as}\PYG{p}{(}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{POINTER}\PYG{p}{(}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{c\PYGZus{}double}\PYG{p}{))}
+\PYG{c+c1}{\PYGZsh{} Call the C functions}
+\PYG{n}{trapezoidal}\PYG{o}{.}\PYG{n}{function}\PYG{p}{(}\PYG{n}{x\PYGZus{}ctypes}\PYG{p}{,} \PYG{n}{y\PYGZus{}ctypes}\PYG{p}{,} \PYG{n}{n\PYGZus{}steps}\PYG{p}{)}
+\PYG{n}{trapezoidal}\PYG{o}{.}\PYG{n}{trapezoidal}\PYG{p}{(}\PYG{n}{x\PYGZus{}ctypes}\PYG{p}{,} \PYG{n}{y\PYGZus{}ctypes}\PYG{p}{,}\PYG{n}{y\PYGZus{}trapezoidal\PYGZus{}ctypes}\PYG{p}{,} \PYG{n}{n\PYGZus{}steps}\PYG{p}{,}\PYG{n}{h}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} Plotting}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{(}\PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{))}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}Theory\PYGZdq{}}\PYG{p}{,} \PYG{n}{linestyle}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}\PYGZsq{}}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}b\PYGZsq{}}\PYG{p}{,}\PYG{n}{linewidth}\PYG{o}{=}\PYG{l+m+mi}{10}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y\PYGZus{}trapezoidal}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}Trapezoidal\PYGZdq{}}\PYG{p}{,} \PYG{n}{linestyle}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}\PYGZhy{}\PYGZsq{}}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}r\PYGZsq{}}\PYG{p}{,}\PYG{n}{linewidth}\PYG{o}{=}\PYG{l+m+mi}{7}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}x\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}y\PYGZdq{}}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}plt.legend()}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{([}\PYG{l+s+s1}{\PYGZsq{}Theory\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}Trapezoidal\PYGZsq{}}\PYG{p}{])}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{()}
+\PYG{c+c1}{\PYGZsh{}plt.show()}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{savefig}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}plot.png\PYGZsq{}}\PYG{p}{)}
+\end{Verbatim}

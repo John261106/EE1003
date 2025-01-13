@@ -1,0 +1,22 @@
+\frametitle{Python-Code}
+\begin{minted}[bgcolor=bg, linenos, fontsize=\scriptsize, breaklines]{python}
+
+#Converting array to ctypes
+x_ctypes = x.ctypes.data_as(ctypes.POINTER(ctypes.c_double))
+y_ctypes = y.ctypes.data_as(ctypes.POINTER(ctypes.c_double))
+y_trapezoidal_ctypes = y_trapezoidal.ctypes.data_as(ctypes.POINTER(ctypes.c_double))
+# Call the C functions
+trapezoidal.function(x_ctypes, y_ctypes, n_steps)
+trapezoidal.trapezoidal(x_ctypes, y_ctypes,y_trapezoidal_ctypes, n_steps,h)
+# Plotting
+plt.figure(figsize=(10, 6))
+plt.plot(x, y, label="Theory", linestyle='-', color='b',linewidth=10)
+plt.plot(x, y_trapezoidal, label="Trapezoidal", linestyle='--', color='r',linewidth=7)
+plt.xlabel("x")
+plt.ylabel("y")
+#plt.legend()
+plt.legend(['Theory','Trapezoidal'])
+plt.grid()
+#plt.show()
+plt.savefig('plot.png')
+\end{minted}
