@@ -1,0 +1,17 @@
+\frametitle{Python-Code}
+\begin{minted}[bgcolor=bg, linenos, fontsize=\scriptsize, breaklines]{python}
+# Plotting
+plt.figure(figsize=(10, 6))
+plt.plot(area_x, y_1, label="Function1", linestyle='-', color='b',linewidth=7)
+plt.plot(area_x, y_2, label="Function2", linestyle='-', color='r',linewidth=7)
+plt.fill_betweenx(y_2, area_x, np.sqrt(4 * y_2), where=(y_2 >= 0), color='skyblue', alpha=0.5)
+plt.fill_between(area_x, y_1, 0, where=(area_x >= 0), color='lightgreen', alpha=0.5)
+plt.fill_betweenx(y_2, 0, area_x, where=(y_2 >= 0), color='lightcoral', alpha=0.5)
+plt.xlabel("x")
+plt.ylabel("y")
+#plt.legend()
+plt.legend(['$x^2=4y$','$y^2=4x$',f'RegionA(area={Area2-Area1})',f'RegionB(area={Area1})',f'RegionC(area={16-Area2})'])
+plt.grid()
+#plt.show()
+plt.savefig('plot.png')
+\end{minted}

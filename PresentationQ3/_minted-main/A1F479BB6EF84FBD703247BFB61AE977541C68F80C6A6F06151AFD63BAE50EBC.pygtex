@@ -1,0 +1,23 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}Setting up the arrays}
+\PYG{n}{area\PYGZus{}x} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{n}{x\PYGZus{}start}\PYG{p}{,} \PYG{n}{x\PYGZus{}end}\PYG{p}{,} \PYG{n}{n\PYGZus{}steps}\PYG{p}{)}
+\PYG{n}{area\PYGZus{}y\PYGZus{}1} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{n\PYGZus{}steps}\PYG{p}{)}
+\PYG{n}{area\PYGZus{}y\PYGZus{}2} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{n\PYGZus{}steps}\PYG{p}{)}
+\PYG{n}{y\PYGZus{}1}\PYG{o}{=}\PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{n\PYGZus{}steps}\PYG{p}{)}
+\PYG{n}{y\PYGZus{}2}\PYG{o}{=}\PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{n\PYGZus{}steps}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}Conversion to ctypes array}
+\PYG{n}{area\PYGZus{}x\PYGZus{}ctypes} \PYG{o}{=} \PYG{n}{area\PYGZus{}x}\PYG{o}{.}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{data\PYGZus{}as}\PYG{p}{(}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{POINTER}\PYG{p}{(}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{c\PYGZus{}double}\PYG{p}{))}
+\PYG{n}{area\PYGZus{}y\PYGZus{}1\PYGZus{}ctypes} \PYG{o}{=} \PYG{n}{area\PYGZus{}y\PYGZus{}1}\PYG{o}{.}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{data\PYGZus{}as}\PYG{p}{(}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{POINTER}\PYG{p}{(}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{c\PYGZus{}double}\PYG{p}{))}
+\PYG{n}{area\PYGZus{}y\PYGZus{}2\PYGZus{}ctypes} \PYG{o}{=} \PYG{n}{area\PYGZus{}y\PYGZus{}2}\PYG{o}{.}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{data\PYGZus{}as}\PYG{p}{(}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{POINTER}\PYG{p}{(}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{c\PYGZus{}double}\PYG{p}{))}
+\PYG{n}{y\PYGZus{}1\PYGZus{}ctypes} \PYG{o}{=} \PYG{n}{y\PYGZus{}1}\PYG{o}{.}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{data\PYGZus{}as}\PYG{p}{(}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{POINTER}\PYG{p}{(}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{c\PYGZus{}double}\PYG{p}{))}
+\PYG{n}{y\PYGZus{}2\PYGZus{}ctypes} \PYG{o}{=} \PYG{n}{y\PYGZus{}2}\PYG{o}{.}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{data\PYGZus{}as}\PYG{p}{(}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{POINTER}\PYG{p}{(}\PYG{n}{ctypes}\PYG{o}{.}\PYG{n}{c\PYGZus{}double}\PYG{p}{))}
+\PYG{c+c1}{\PYGZsh{} Call the C functions}
+\PYG{n}{lib}\PYG{o}{.}\PYG{n}{function\PYGZus{}1}\PYG{p}{(}\PYG{n}{area\PYGZus{}x\PYGZus{}ctypes}\PYG{p}{,} \PYG{n}{y\PYGZus{}1\PYGZus{}ctypes}\PYG{p}{,} \PYG{n}{n\PYGZus{}steps}\PYG{p}{)}
+\PYG{n}{lib}\PYG{o}{.}\PYG{n}{trapezoidal\PYGZus{}1}\PYG{p}{(}\PYG{n}{area\PYGZus{}x\PYGZus{}ctypes}\PYG{p}{,}\PYG{n}{area\PYGZus{}y\PYGZus{}1\PYGZus{}ctypes}\PYG{p}{,} \PYG{n}{n\PYGZus{}steps}\PYG{p}{,}\PYG{n}{h}\PYG{p}{)}
+\PYG{n}{lib}\PYG{o}{.}\PYG{n}{function\PYGZus{}2}\PYG{p}{(}\PYG{n}{area\PYGZus{}x\PYGZus{}ctypes}\PYG{p}{,} \PYG{n}{y\PYGZus{}2\PYGZus{}ctypes}\PYG{p}{,} \PYG{n}{n\PYGZus{}steps}\PYG{p}{)}
+\PYG{n}{lib}\PYG{o}{.}\PYG{n}{trapezoidal\PYGZus{}2}\PYG{p}{(}\PYG{n}{area\PYGZus{}x\PYGZus{}ctypes}\PYG{p}{,}\PYG{n}{area\PYGZus{}y\PYGZus{}2\PYGZus{}ctypes}\PYG{p}{,} \PYG{n}{n\PYGZus{}steps}\PYG{p}{,}\PYG{n}{h}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}Area variables}
+\PYG{n}{Area1}\PYG{o}{=}\PYG{n}{area\PYGZus{}y\PYGZus{}1}\PYG{p}{[}\PYG{l+m+mi}{40}\PYG{p}{]}
+\PYG{n}{Area2}\PYG{o}{=}\PYG{n}{area\PYGZus{}y\PYGZus{}2}\PYG{p}{[}\PYG{l+m+mi}{40}\PYG{p}{]}
+
+\end{Verbatim}
