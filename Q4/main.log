@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.8.6)  14 JAN 2025 12:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.8.6)  16 JAN 2025 11:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1370,7 +1370,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 59--60
 <figs/Q4.png, id=15, 722.7pt x 433.62pt>
 File: figs/Q4.png Graphic file (type png)
 <use figs/Q4.png>
-Package pdftex.def Info: figs/Q4.png  used on input line 99.
+Package pdftex.def Info: figs/Q4.png  used on input line 100.
 (pdftex.def)             Requested size: 516.0pt x 309.59926pt.
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-
 dist/fonts/enc/dvips/base/8r.enc}] [2 <./figs/Q4.png>] (./main.aux)
@@ -1382,10 +1382,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 20DD3C8B501E95F6E1F42B8B4CDDB35A;272.
  ) 
 Here is how much of TeX's memory you used:
- 30460 strings out of 474222
- 595815 string characters out of 5748734
+ 30459 strings out of 474222
+ 595804 string characters out of 5748734
  1944975 words of memory out of 5000000
- 52038 multiletter control sequences out of 15000+600000
+ 52037 multiletter control sequences out of 15000+600000
  617722 words of font info for 153 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  101i,10n,103p,1172b,440s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1396,7 +1396,7 @@ onts/type1/public/txfonts/txex.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utm
 b8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (2 pages, 76638 bytes).
+Output written on main.pdf (2 pages, 76952 bytes).
 PDF statistics:
  89 PDF objects out of 1000 (max. 8388607)
  66 compressed objects within 1 object stream

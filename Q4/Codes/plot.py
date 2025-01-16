@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import ctypes
+import cvxpy as cp
 
 # Load the shared library
 lib = ctypes.CDLL('./lib.so')
@@ -40,4 +41,22 @@ plt.ylabel("y")
 plt.legend(['f(x)=280+180x+720/x', f'Min at x={min_point:.2f}'])
 plt.grid()
 plt.savefig('plot.png')
+
+#Geometric programming 
+
+#Define the variables
+x=cp.Variable(pos=True)
+
+#Define the objective function
+objective=cp.Minimize(280+180*x+720/x)
+
+#Defining the problem 
+problem=cp.Problem(objective)
+
+#Solving the problem with geometric programming
+problem.solve(gp=True)
+print("Results obtained from geometric programming")
+print("Minimized x value: ",x.value)
+print("Minimized cost value: ",problem.value)
+
 
