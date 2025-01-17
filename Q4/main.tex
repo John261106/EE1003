@@ -94,7 +94,8 @@ Where $\alpha$ is the learning rate,\\
 This iteration will stop until we reach a stable state $\brak{f^{\prime}\brak{x} \approx0}$\\
 We get,\\
 $x_{min}=2$\\
-We can also solve using geometric programming by using the cvpxy module in python. On running the code we get the minimum value of x to be 2.
+We can also solve using geometric programming by using the cvpxy module in python. On running the code we get the minimum value of x to be 2.\\
+For using quadratic programming we can assume a new variable $y$ as $\frac{1}{x}$, but the constraint will be non-linear but it can be solved as cvxpy supports this structure.
 \begin{figure}[h]
 \centering
 \includegraphics[width=\columnwidth]{figs/Q4.png}

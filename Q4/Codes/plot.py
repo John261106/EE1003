@@ -59,4 +59,25 @@ print("Results obtained from geometric programming")
 print("Minimized x value: ",x.value)
 print("Minimized cost value: ",problem.value)
 
+#Quadratic programming approach by treating 1/x as y 
+# Define variables
+x_1 = cp.Variable(pos=True)  # x > 0
+y_1 = cp.Variable(pos=True)  # y > 0
+
+# Define constraints
+constraints_1 = [y_1 == 1/x_1] #(for quadratic programming the constraints must be linear but cvxpy supports non linear also)
+
+# Define the objective function
+objective_1 = cp.Minimize(280 + 180 * x_1 + 720 * y_1)
+
+# Formulate and solve the problem
+problem_1 = cp.Problem(objective_1, constraints_1)
+problem_1.solve()
+
+# Print the results
+print("Optimal value of x:", x_1.value)
+print("Optimal value of y:", y_1.value)
+print("Minimum value of the function:", problem_1.value)
+
+
 
