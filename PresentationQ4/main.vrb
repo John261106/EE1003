@@ -1,0 +1,18 @@
+\frametitle{CVXPY Module}
+using Geometric Programming,
+\begin{minted}[bgcolor=bg, linenos, fontsize=\scriptsize, breaklines]{python}
+    #Define the variables
+x=cp.Variable(pos=True)
+
+#Define the objective function
+objective=cp.Minimize(280+180*x+720/x)
+
+#Defining the problem
+problem=cp.Problem(objective)
+
+#Solving the problem with geometric programming
+problem.solve(gp=True)
+print("Results obtained from geometric programming")
+print("Minimized x value: ",x.value)
+print("Minimized cost value: ",problem.value)
+\end{minted}

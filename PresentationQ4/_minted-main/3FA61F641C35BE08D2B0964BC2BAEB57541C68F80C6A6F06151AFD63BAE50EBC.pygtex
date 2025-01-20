@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{c+c1}{\PYGZsh{}Define the variables}
+\PYG{n}{x}\PYG{o}{=}\PYG{n}{cp}\PYG{o}{.}\PYG{n}{Variable}\PYG{p}{(}\PYG{n}{pos}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{}Define the objective function}
+\PYG{n}{objective}\PYG{o}{=}\PYG{n}{cp}\PYG{o}{.}\PYG{n}{Minimize}\PYG{p}{(}\PYG{l+m+mi}{280}\PYG{o}{+}\PYG{l+m+mi}{180}\PYG{o}{*}\PYG{n}{x}\PYG{o}{+}\PYG{l+m+mi}{720}\PYG{o}{/}\PYG{n}{x}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{}Defining the problem}
+\PYG{n}{problem}\PYG{o}{=}\PYG{n}{cp}\PYG{o}{.}\PYG{n}{Problem}\PYG{p}{(}\PYG{n}{objective}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{}Solving the problem with geometric programming}
+\PYG{n}{problem}\PYG{o}{.}\PYG{n}{solve}\PYG{p}{(}\PYG{n}{gp}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Results obtained from geometric programming\PYGZdq{}}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Minimized x value: \PYGZdq{}}\PYG{p}{,}\PYG{n}{x}\PYG{o}{.}\PYG{n}{value}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Minimized cost value: \PYGZdq{}}\PYG{p}{,}\PYG{n}{problem}\PYG{o}{.}\PYG{n}{value}\PYG{p}{)}
+\end{Verbatim}
