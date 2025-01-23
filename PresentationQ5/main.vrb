@@ -1,0 +1,19 @@
+\frametitle{Python-Code}
+\begin{minted}[bgcolor=bg, linenos, fontsize=\scriptsize, breaklines]{python}
+# Conversion to ctypes array
+x_ctypes = x.ctypes.data_as(ctypes.POINTER(ctypes.c_double))
+y_ctypes = y.ctypes.data_as(ctypes.POINTER(ctypes.c_double))
+lib.function(x_ctypes, y_ctypes, n_steps)
+root1=lib.NR(5)
+root2=lib.NR(25)
+# Plotting
+plt.figure(figsize=(10, 6))
+plt.plot(x, y, label="Theory", linestyle='-', color='b', linewidth=5)
+plt.scatter(root1, 0, color='r', marker='o', s=100, zorder=5, label=f"Root at x={root1:.2f}")
+plt.scatter(root2, 0, color='r', marker='o', s=100, zorder=5, label=f"Root at x={root2:.2f}")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.legend(['f(x)=$x^2-45x+324$',f"Root at x={root2:.2f}",f"Root at x={root1:.2f}"])
+plt.grid()
+plt.savefig('plot.png')
+\end{minted}
