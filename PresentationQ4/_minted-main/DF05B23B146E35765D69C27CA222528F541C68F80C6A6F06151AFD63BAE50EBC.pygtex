@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Call the C functions}
+\PYG{n}{lib}\PYG{o}{.}\PYG{n}{function}\PYG{p}{(}\PYG{n}{x\PYGZus{}ctypes}\PYG{p}{,} \PYG{n}{y\PYGZus{}ctypes}\PYG{p}{,} \PYG{n}{n\PYGZus{}steps}\PYG{p}{)}
+\PYG{n}{min\PYGZus{}point} \PYG{o}{=} \PYG{n}{lib}\PYG{o}{.}\PYG{n}{gradient\PYGZus{}descent}\PYG{p}{()}
+\PYG{n}{min\PYGZus{}value} \PYG{o}{=} \PYG{l+m+mi}{280} \PYG{o}{+} \PYG{l+m+mi}{180} \PYG{o}{*} \PYG{n}{min\PYGZus{}point} \PYG{o}{+} \PYG{l+m+mi}{720} \PYG{o}{/} \PYG{n}{min\PYGZus{}point}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Minimum found at x = }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{min\PYGZus{}point}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{, f(x) = }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{min\PYGZus{}value}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} Plotting}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{(}\PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{))}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}Theory\PYGZdq{}}\PYG{p}{,} \PYG{n}{linestyle}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}\PYGZsq{}}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}b\PYGZsq{}}\PYG{p}{,} \PYG{n}{linewidth}\PYG{o}{=}\PYG{l+m+mi}{5}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{scatter}\PYG{p}{(}\PYG{n}{min\PYGZus{}point}\PYG{p}{,} \PYG{n}{min\PYGZus{}value}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}r\PYGZsq{}}\PYG{p}{,} \PYG{n}{marker}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}o\PYGZsq{}}\PYG{p}{,} \PYG{n}{s}\PYG{o}{=}\PYG{l+m+mi}{100}\PYG{p}{,} \PYG{n}{zorder}\PYG{o}{=}\PYG{l+m+mi}{5}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Min at x=}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{min\PYGZus{}point}\PYG{l+s+si}{:}\PYG{l+s+s2}{.2f}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}x\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}y\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{([}\PYG{l+s+s1}{\PYGZsq{}f(x)=280+180x+720/x\PYGZsq{}}\PYG{p}{,} \PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}Min at x=}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{min\PYGZus{}point}\PYG{l+s+si}{:}\PYG{l+s+s1}{.2f}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{])}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{()}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{savefig}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}plot.png\PYGZsq{}}\PYG{p}{)}
+\end{Verbatim}

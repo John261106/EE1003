@@ -61,6 +61,74 @@ We get,\\
 $x_{min}=2$
 \end{frame}
 \begin{frame}[fragile]
+\frametitle{C-Code}
+\begin{minted}[bgcolor=bg, linenos, fontsize=\scriptsize, breaklines]{c}
+#include <stdio.h>
+#include <math.h>
+void function(double *x,double *y,int n){
+	for(int i=0;i<n;i++)
+		y[i]=280+180*x[i]+720/(x[i]);
+}
+double derivative(double x){
+	return 180-720/(x*x);
+}
+double  gradient_descent() {
+    double l = 1.0;  // Initial guess for l (should be > 0 to avoid division by zero)
+    double prev_l;
+    do {
+        prev_l = l;
+        l = l - 0.001 * derivative(prev_l);
+    } while (fabs(l - prev_l) > 1e-6);
+    return l; 
+}
+\end{minted}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Python-Code}
+\begin{minted}[bgcolor=bg, linenos, fontsize=\scriptsize, breaklines]{python}
+import numpy as np
+import matplotlib.pyplot as plt
+import ctypes
+import cvxpy as cp
+# Load the shared library
+lib = ctypes.CDLL('./lib.so')
+lib.function.argtypes=[ctypes.POINTER(ctypes.c_double), ctypes.POINTER(ctypes.c_double), ctypes.c_int]
+lib.derivative.argtypes=[ctypes.c_double]
+lib.derivative.restype=ctypes.c_double
+lib.gradient_descent.restype=ctypes.c_double
+# Parameters
+x_start = 0
+x_end = 5
+h = 0.01
+n_steps = 501
+# Setting up the array
+x = np.linspace(x_start, x_end, n_steps)
+y = np.zeros(n_steps)
+# Conversion to ctypes array
+x_ctypes = x.ctypes.data_as(ctypes.POINTER(ctypes.c_double))
+y_ctypes = y.ctypes.data_as(ctypes.POINTER(ctypes.c_double))
+
+\end{minted}
+\end{frame}
+\begin{frame}[fragile]
+\begin{minted}[bgcolor=bg, linenos, fontsize=\scriptsize, breaklines]{python}
+# Call the C functions
+lib.function(x_ctypes, y_ctypes, n_steps)
+min_point = lib.gradient_descent()
+min_value = 280 + 180 * min_point + 720 / min_point
+print(f"Minimum found at x = {min_point}, f(x) = {min_value}")
+# Plotting
+plt.figure(figsize=(10, 6))
+plt.plot(x, y, label="Theory", linestyle='-', color='b', linewidth=5)
+plt.scatter(min_point, min_value, color='r', marker='o', s=100, zorder=5, label=f"Min at x={min_point:.2f}")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.legend(['f(x)=280+180x+720/x', f'Min at x={min_point:.2f}'])
+plt.grid()
+plt.savefig('plot.png')
+\end{minted}
+\end{frame}
+\begin{frame}[fragile]
 \frametitle{CVXPY Module}
 using Geometric Programming,
 \begin{minted}[bgcolor=bg, linenos, fontsize=\scriptsize, breaklines]{python}
